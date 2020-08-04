@@ -1,8 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # Android Hash Cracker
 # Jose Selvi - jselvi[a.t]pentester[d0.t]es - http://www.pentester.es
 # Version 0.2 - 05/May/2013
 # 	- Fixed problems in hex() at Python 2.6 (thanks @ldelgadoj)
+# Version 0.3 - 04/Aug/2020
+# 	- Ported to Python3 (only changes in "print" were needed)
 
 # Libraries
 from optparse import OptionParser
@@ -59,13 +61,13 @@ if not options.hash or not options.salt:
 
 # Check lenght
 if options.length < 4:
-	print "Error! Min passcode len in Android is 4!"
+	print("Error! Min passcode len in Android is 4!")
 	exit()
 if options.length > 16:
-	print "Error! Max passcode len in Android is 16!"
+	print("Error! Max passcode len in Android is 16!")
 	exit()
 if options.length > 6:
-	print "Maybe you should use a faster tool such as Hashcat... but let's move on!"
+	print("Maybe you should use a faster tool such as Hashcat... but let's move on!")
 
 # Split hashes
 HASH_SHA1 = options.hash.upper()[:40]
@@ -100,7 +102,7 @@ try:
 				GUESS_HASH = generateHash( passcode, SALT, MODEL )
 				# CompareHash
 				if GUESS_HASH == HASH_SHA1:
-					print "Found! Passcode = " +  passcode
+					print("Found! Passcode = " +  passcode)
 					exit()
 	# Or using wordlist
 	else:
@@ -110,11 +112,11 @@ try:
 			GUESS_HASH = generateHash( passcode, SALT, MODEL )
 			# CompareHash
 			if GUESS_HASH == HASH_SHA1:
-				print "Found! Passcode = " +  passcode
+				print("Found! Passcode = " +  passcode)
 				exit()
 
 	# Not found...
-	print "Bad luck... Is that your specific model?"
+	print("Bad luck... Is that your specific model?")
 	exit()
 
 except KeyboardInterrupt:
