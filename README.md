@@ -1,7 +1,7 @@
+**DEPRECATED! This script has not been used since 2015 or before, so it may not work in modern Android devices. ARCHIVED.**
+
 AndroidPINCrack is a Python script that bruteforce the Android Passcode given the hash and salt.
 Of course there are some other faster ways to crack than a python script, but it can be useful for numeric passcoders or wordlist attack.
-
-**WARNING! (year 2020): This script has been not tested in the last 5 years or more, so it may not work in modern Android devices.**
 
 ```
 $ ./AndroidPINCrack.py 
